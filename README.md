@@ -21,7 +21,6 @@ npx hardhat help
 | Network | Disperse contract address                                                                                                                                          |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Shardeum  | [0xfb742FE319Dc7bdeDfF745986372A26D6B046F25](https://explorer.liberty10.shardeum.org/account/0xfb742FE319Dc7bdeDfF745986372A26D6B046F25)   
-
 | Mumbai  | [0xaf6f4A737188571d128477DEe81d54Bc63De6d80](https://mumbai.polygonscan.com/address/0xaf6f4A737188571d128477DEe81d54Bc63De6d80)                                    |
 | Ropsten | [0x0cD252390E7e46D7Ecf48D225fBB56D8fBd6Faf1](https://ropsten.etherscan.io/address/0x0cD252390E7e46D7Ecf48D225fBB56D8fBd6Faf1)                                      |
 | Rinkeby | [0x3399dCff80b82f78af79686f9f5Cd731AD765786](https://rinkeby.etherscan.io/address/0x3399dCff80b82f78af79686f9f5Cd731AD765786)                                      |
