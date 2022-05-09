@@ -26,7 +26,7 @@ const ConfirmEther = ({
       <ul>
         <li>
           <div className="flex justify-between mt-4">
-            <p className="italic">address</p>
+            <p className="italic ">address</p>
             <p className="italic">amount</p>
           </div>
         </li>
@@ -34,10 +34,10 @@ const ConfirmEther = ({
           recipientsData.map((recipient) => (
             <li>
               <div className="flex justify-between mt-2">
-                <p>{recipient.address}</p>
+                <p class="word-break pr-10">{recipient.address}</p>
                 {/* TODO: Add Horizontal line here */}
                 <div className="border-b-2 border-black flex-grow-1"></div>
-                <p>{ethers.utils.formatEther(recipient.value)}</p>
+                <p class="bold">{ethers.utils.formatEther(recipient.value)}</p>
               </div>
             </li>
           ))}

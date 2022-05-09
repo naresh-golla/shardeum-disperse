@@ -21,7 +21,7 @@ const Status = ({ txnStatus }) => {
       <a
         href={`${scans[chainId]}tx/${txnStatus.hash}`}
         target="_blank"
-        className="text-xs border-gray-600 border-b-2 font-light"
+        className="text-xs border-gray-600 border-b-2 font-light word-break"
       >
         {txnStatus.hash}
       </a>

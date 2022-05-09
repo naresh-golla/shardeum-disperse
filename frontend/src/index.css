@@ -32,3 +32,12 @@
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(90deg,#f56772,#ba6bff);
 }
+.word-break{
+  word-break: break-word;
+}
+.bold{
+  font-weight: bold;
+}
+.pr-10{
+  padding-right: 10px;
+}
