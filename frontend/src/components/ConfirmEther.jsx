@@ -80,7 +80,7 @@ const ConfirmEther = ({
                 boxShadow: "6px 6px crimson",
               }}
             >
-              disperse ether
+              Disperse SHM
             </button>
             {isDisabled && <p className="ml-4 italic">total exceeds balance</p>}
             {txStatus && <Status txnStatus={txStatus} />}

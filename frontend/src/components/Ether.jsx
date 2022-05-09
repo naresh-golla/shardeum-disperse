@@ -101,7 +101,7 @@ const Ether = ({ address }) => {
 
   return (
     <p className="pt-4 text-l font-light italic">
-      you have {ethBalance} <span className="pt-1 text-sm">SHM</span>
+      you have <b>{ethBalance}<span className="gradiant">{" "}SHM</span></b> 
       <Recipients
         textValue={textValue}
         setTextValue={setTextValue}

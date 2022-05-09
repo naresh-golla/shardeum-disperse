@@ -19,7 +19,7 @@ const Header = ({ address }) => {
         />
         <h2 className="mt-8 text-4xl font-light">disperse</h2>
         {address && (
-          <span className="text-l pt-2 font-light">
+          <span className="text-l pt-2 gradiant text-2xl">
             {networkContext.network || "🤔"}
           </span>
         )}

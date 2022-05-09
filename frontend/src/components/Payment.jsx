@@ -182,7 +182,7 @@ const Payment = ({ address }) => {
         send
         <span
           onClick={() => setCurrentLink("ether")}
-          className={`border-gray-600 border-b-2 ${
+          className={`border-gray-600 border-b-2 gradiant ${
             currentLink !== "ether" ? "text-gray-500" : ""
           }`}
         >
@@ -192,7 +192,7 @@ const Payment = ({ address }) => {
         or
         <span
           onClick={() => setCurrentLink("token")}
-          className={`border-gray-600 border-b-2 ${
+          className={`border-gray-600 border-b-2 gradiant ${
             currentLink !== "token" ? "text-gray-500" : ""
           }`}
         >

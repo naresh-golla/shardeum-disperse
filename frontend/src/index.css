@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
   font-family: "Roboto";
+} */
+@media only screen and (max-width:650px){
+  .mx-40{
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .px-40 {
+    margin-left: 3rem !important;
+    margin-right: 1rem !important;
+  }
+}
+@media only screen and (min-width:650px) and (max-width:980px){
+  .mx-40{
+    padding-left: 5rem !important;
+    padding-right: 3rem !important;
+  }
+  .px-40 {
+    margin-left: 5rem !important;
+    margin-right: 3rem !important;
+  }
+}
+.gradiant{
+  font-weight: 400;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg,#f56772,#ba6bff);
 }
