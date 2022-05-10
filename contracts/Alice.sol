@@ -8,6 +8,6 @@ contract Alice is ERC20 {
         ERC20(_name, _symbol)
     {
         // Mint 10000 ALICE token
-        _mint(msg.sender, 10000 * 10**uint256(decimals()));
+        _mint(msg.sender, 100000 * 10**uint256(decimals()));
     }
 }

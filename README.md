@@ -1,6 +1,16 @@
-# Shardeum Disperse App
+# [https://shardeum-disperse.vercel.app/](https://shardeum-disperse.vercel.app/)
+## Shardeum Disperse App
 
 Shardeum Disperse App let you disperse any Shardeum tokens or SHM to multiple addresses using single contract call.
+
+Shardeum DAOs often need to distribute payment in SHM or tokens to multiple parties, requiring setup, tracking and gas fees for every transaction. 
+
+This DAPP allows users to send SHM and thousands of shardeum tokens to multiple addresses efficiently in a single transaction
+
+This tool enables users to save time by automatically generating transactions on MetaMask. 
+
+Airdrop tokens to the community members using shardeum disperse app
+
 
 
 Try running some of the following tasks:
@@ -13,6 +23,7 @@ npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js --network shardeum
 node scripts/sample-script.js
+node scripts/deploy-domains.js
 npx hardhat help
 ```
 
