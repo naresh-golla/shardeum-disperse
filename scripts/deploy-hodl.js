@@ -2,7 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
   const Hodl = await hre.ethers.getContractFactory("Hodl");
-  const hodl_ = await Hodl.deploy("10000000000000000000000000000");
+  const hodl_ = await Hodl.deploy("1000000000000000000000000");
 
   await hodl_.deployed();
 

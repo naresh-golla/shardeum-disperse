@@ -66,6 +66,7 @@ module.exports = {
       url: SHARDEUM_RPC,
       accounts: [privateKey],
       chainId: 8080,
+      timeout: 80000
     }
   },
 };

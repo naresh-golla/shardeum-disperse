@@ -29,7 +29,7 @@ export const disperseAddresses = {
     "0x73a41d6b7889fBF94d059C943bc58dd18c600bfa",
   8080:
     import.meta.VITE_DISPERSE_SHARDEUM ||
-    "0xfb742FE319Dc7bdeDfF745986372A26D6B046F25",
+    "0x61Ae6087183C40d5Eb9722Af74e3dd05F86618F2",
 };
 
 export const scans = {

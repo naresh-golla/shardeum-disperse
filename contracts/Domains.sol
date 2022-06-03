@@ -25,10 +25,10 @@ contract Domains is ERC721URIStorage {
 
     address payable public owner;
 
-    string svgPartOne = '<svg xmlns="http://www.w3.org/2000/svg" width="270" height="270" fill="none"><path fill="url(#a)" d="M0 0h270v270H0z"/><defs><filter id="b" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="270" width="270"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity=".225" width="200%" height="200%"/></filter></defs><svg x="15" y="15" width="120" height="108" viewBox="0 0 120 108" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.4358 77.2888L16.7213 100H103.279L90.5643 77.2888H29.4358Z" fill="white"/><path d="M60 22.7112L47.2856 0L4 77.2889H29.4358L60 22.7112Z" fill="white"/><path d="M90.5642 77.2889H116L72.7145 -3.05176e-05L60 22.7111L90.5642 77.2889Z" fill="white"/><path d="M60 73.3853C67.6037 73.3853 73.7677 67.0303 73.7677 59.1909C73.7677 51.3515 67.6037 44.9964 60 44.9964C52.3964 44.9964 46.2324 51.3515 46.2324 59.1909C46.2324 67.0303 52.3964 73.3853 60 73.3853Z" fill="white"/></svg><defs><linearGradient id="a" x1="0" y1="0" x2="270" y2="270" gradientUnits="userSpaceOnUse"><stop stop-color="#cb5eee"/><stop offset="1" stop-color="#0cd7e4" stop-opacity=".99"/></linearGradient></defs><text x="32.5" y="231" font-size="27" fill="#fff" filter="url(#b)" font-family="Plus Jakarta Sans,DejaVu Sans,Noto Color Emoji,Apple Color Emoji,sans-serif" font-weight="bold">';
+    string svgPartOne = '<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" fill="none"><path fill="url(#a)" d="M0 0h280v280H0z"/><defs><filter id="b" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="280" width="280"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity=".225" width="200%" height="200%"/></filter></defs><svg x="15" y="15" width="120" height="108" viewBox="0 0 120 108" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.4358 77.2888L16.7213 100H103.279L90.5643 77.2888H29.4358Z" fill="white"/><path d="M60 22.7112L47.2856 0L4 77.2889H29.4358L60 22.7112Z" fill="white"/><path d="M90.5642 77.2889H116L72.7145 -3.05176e-05L60 22.7111L90.5642 77.2889Z" fill="white"/><path d="M60 73.3853C67.6037 73.3853 73.7677 67.0303 73.7677 59.1909C73.7677 51.3515 67.6037 44.9964 60 44.9964C52.3964 44.9964 46.2324 51.3515 46.2324 59.1909C46.2324 67.0303 52.3964 73.3853 60 73.3853Z" fill="white"/></svg><defs><linearGradient id="a" x1="0" y1="0" x2="280" y2="280" gradientUnits="userSpaceOnUse"><stop stop-color="#cb5eee"/><stop offset="1" stop-color="#0cd7e4" stop-opacity=".99"/></linearGradient></defs><text x="32.5" y="231" font-size="27" fill="#fff" filter="url(#b)" font-family="Plus Jakarta Sans,DejaVu Sans,Noto Color Emoji,Apple Color Emoji,sans-serif" font-weight="bold">';
     string svgPartTwo = '</text></svg>';
 
-    constructor(string memory _tld) ERC721("Web3 user name NFT on shardeum | SHM", "Web3 User Name") payable {
+    constructor(string memory _tld) ERC721("Web3 user name NFT on shardeum | SHM", "Shardeum User Name") payable {
         owner = payable(msg.sender);
         tld = _tld;
         console.log("%s name services deployed", _tld);
@@ -38,17 +38,17 @@ contract Domains is ERC721URIStorage {
         uint len = StringUtils.strlen(name);
         require(len > 2);
         if(len == 3){
-            return 90 * 10**17;
+            return 90 * 10**18;
         }else if(len == 4){
-            return 50 * 10**17;
+            return 50 * 10**18;
         }else if(len == 5){
-            return 30 * 10**17;
+            return 30 * 10**18;
         }else{
-            return 10 * 10**17;
+            return 10 * 10**18;
         }
     }
 
-    function registers(string calldata name) public payable {
+    function registers(string calldata name, string calldata record) public payable {
         // require(domains[name] == address(0));
         if(domains[name] != address(0)) revert AlreadyRegistered();
         if(!valid(name)) revert InvalidName(name);
@@ -73,7 +73,7 @@ contract Domains is ERC721URIStorage {
                     abi.encodePacked(
                         '{"name":"',
                         _name,
-                        '","description":"Web3 user name NFT on shardeum | SHM","image":"data:image/svg+xml;base64,',
+                        '","description":"Shardeum user name NFT | SHM","image":"data:image/svg+xml;base64,',
                         Base64.encode(bytes(finalSvg)),
                         '","length":"',
                         strLen,
@@ -93,7 +93,9 @@ contract Domains is ERC721URIStorage {
         _setTokenURI(newRecordId, finalTokenUri);
 
         domains[name] = msg.sender;
+        records[name] = record;
         console.log("%s has registred a domain", msg.sender);
+        console.log("and a record", record);
 
         names[newRecordId] = name;
         _tokenIds.increment();
@@ -129,18 +131,40 @@ contract Domains is ERC721URIStorage {
         require(success, "failed to withdraw SHM");
     }
 
-    function getAllNames() public view returns(string[] memory){
+    function getAllData() public view returns(string[] memory){
         string[] memory allNames = new string[](_tokenIds.current());
         for(uint i = 0; i < _tokenIds.current(); i++){
-            console.log("iteration i  names[i] ", names[i]);
-            console.log("iteration i  allNames[i] ", allNames[i]);
-            allNames[i] = names[i];
+            allNames[i] =  string(abi.encodePacked(names[i],"|+|", records[names[i]],"|+|",Strings.toHexString(uint256(uint160(domains[names[i]])), 20),"|+|",Strings.toString(i)));
         }
         return allNames;
     }
+    function getAllDataOfAddress(address addr_) public view returns(string[] memory){
+        string[] memory allNamesOfAddress = new string[](_tokenIds.current());
+        for(uint i = 0; i < _tokenIds.current(); i++){
+            if(addr_ ==  domains[names[i]]){
+               allNamesOfAddress[i] =  string(abi.encodePacked(names[i],"|+|", records[names[i]],"|+|",Strings.toHexString(uint256(uint160(domains[names[i]])), 20),"|+|",Strings.toString(i)));
+            }
+        }
+        return allNamesOfAddress;
+    }
 
     function valid(string calldata name) public pure returns(bool){
-        return StringUtils.strlen(name) >= 3 && StringUtils.strlen(name) <= 10;
+        return StringUtils.strlen(name) >= 3 && StringUtils.strlen(name) <= 12;
     }
+
+    function getAllNamesCount() public view returns(uint ){
+        return _tokenIds.current();
+    }
+
+    function getAllNamesOfAddressCount(address addr_) public view returns(uint){
+        uint addrsNamesCount = 0;
+        for(uint i = 0; i < _tokenIds.current(); i++){
+            if(addr_ == domains[names[i]]){
+               addrsNamesCount ++;
+            }
+        }
+        return addrsNamesCount;
+    }
+
 }
 
